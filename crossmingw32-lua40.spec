@@ -3,7 +3,7 @@ Summary:	A simple lightweight powerful embeddable programming language - Mingw32
 Summary(pl):	Prosty, lekki ale potê¿ny, osadzalny jêzyk programowania - wersja skro¶na dla Mingw32
 Name:		crossmingw32-%{realname}
 Version:	4.0.1
-Release:	1
+Release:	2
 License:	BSD-like (see docs)
 Group:		Development/Languages
 Source0:	http://www.lua.org/ftp/lua-%{version}.tar.gz
@@ -99,12 +99,14 @@ TARGET="%{target}" ; export TARGET
 	OPT="%{rpmcflags}"
 
 cd src
-%{__cc} --shared *.o -Wl,--enable-auto-image-base -o ../lib/lua.dll -Wl,--out-implib,../lib/liblua.dll.a
+%{__cc} --shared *.o -Wl,--enable-auto-image-base -o ../lib/lua40.dll -Wl,--out-implib,../lib/liblua40.dll.a
 cd lib
-%{__cc} --shared *.o -Wl,--enable-auto-image-base -o ../../lib/lualib.dll -Wl,--out-implib,../../lib/liblualib.dll.a -llua -L../../lib
+%{__cc} --shared *.o -Wl,--enable-auto-image-base -o ../../lib/lualib40.dll -Wl,--out-implib,../../lib/liblualib40.dll.a -llua -L../../lib
 cd ../..
 
 cd lib
+mv liblua{,40}.a
+mv liblualib{,40}.a
 %if 0%{!?debug:1}
 %{target}-strip *.dll
 %{target}-strip -g -R.comment -R.note *.a
@@ -112,10 +114,10 @@ cd lib
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{arch}/{include,lib}
+install -d $RPM_BUILD_ROOT%{arch}/{include/lua40,lib}
 install -d $RPM_BUILD_ROOT%{_datadir}/wine/windows/system
 
-install include/*.h $RPM_BUILD_ROOT%{arch}/include
+install include/*.h $RPM_BUILD_ROOT%{arch}/include/lua40
 install lib/*.a $RPM_BUILD_ROOT%{arch}/lib
 install lib/*.dll $RPM_BUILD_ROOT%{_datadir}/wine/windows/system
 
