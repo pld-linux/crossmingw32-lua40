@@ -1,0 +1,12 @@
+--- lua/config~	Thu Nov 15 06:20:11 2001
++++ lua/config	Thu Nov 15 06:20:11 2001
+@@ -93,7 +93,8 @@
+ INCS= -I$(INC) $(EXTRA_INCS)
+ DEFS= $(COMPAT) $(NUMBER) $(OLD_ANSI) $(EXTRA_DEFS)
+ 
+-CFLAGS= -O2 $(WARN) $(INCS) $(DEFS)
++OPT= -O2
++CFLAGS= $(OPT) $(WARN) $(INCS) $(DEFS)
+ 
+ V=4.0
+ 
