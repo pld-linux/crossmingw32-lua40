@@ -15,6 +15,7 @@ BuildRequires:	automake
 BuildRequires:	crossmingw32-gcc
 BuildRequires:	crossmingw32-w32api
 BuildRequires:	libtool
+Obsoletes:	crossmingw32-lua50
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
@@ -67,6 +68,7 @@ prototipagem rápida.
 Summary:	%{realname} - DLL library for Windows
 Summary(pl):	%{realname} - biblioteka DLL dla Windows
 Group:		Applications/Emulators
+Obsoletes:	crossmingw32-lua50-dll
 
 %description dll
 %{realname} - DLL library for Windows.
