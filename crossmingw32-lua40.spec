@@ -1,6 +1,6 @@
 %define		realname	lua40
 Summary:	A simple lightweight powerful embeddable programming language - Mingw32 cross version
-Summary(pl.UTF-8):   Prosty, lekki ale potężny, osadzalny język programowania - wersja skrośna dla Mingw32
+Summary(pl.UTF-8):	Prosty, lekki ale potężny, osadzalny język programowania - wersja skrośna dla Mingw32
 Name:		crossmingw32-%{realname}
 Version:	4.0.1
 Release:	4
@@ -66,7 +66,7 @@ prototipagem rápida.
 
 %package dll
 Summary:	%{realname} - DLL library for Windows
-Summary(pl.UTF-8):   %{realname} - biblioteka DLL dla Windows
+Summary(pl.UTF-8):	%{realname} - biblioteka DLL dla Windows
 Group:		Applications/Emulators
 
 %description dll
