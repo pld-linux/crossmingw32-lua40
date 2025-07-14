@@ -75,7 +75,7 @@ Group:		Applications/Emulators
 
 %prep
 %setup -q -n lua-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 CC=%{target}-gcc ; export CC
